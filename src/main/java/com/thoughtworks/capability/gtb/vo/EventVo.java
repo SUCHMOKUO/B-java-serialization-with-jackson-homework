@@ -2,6 +2,7 @@ package com.thoughtworks.capability.gtb.vo;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.thoughtworks.capability.gtb.serializer.DateTimestamp;
@@ -21,5 +22,7 @@ public class EventVo {
   @JsonSerialize(using = DateTimestamp.Serializer.class)
   @JsonDeserialize(using = DateTimestamp.Deserializer.class)
   private Date time;
+
+  @JsonUnwrapped
   private UserVo user;
 }
